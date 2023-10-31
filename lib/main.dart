@@ -1,4 +1,5 @@
 import 'package:e_book/Config/Themes.dart';
+import 'package:e_book/Pages/HomePage/HomePage.dart';
 import 'package:e_book/Pages/WelcomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'E Book',
       theme: lightTheme,
-      home: const WelcomePage(),
+      // home: const WelcomePage(),
+      home: const HomePage(),
     );
   }
 }

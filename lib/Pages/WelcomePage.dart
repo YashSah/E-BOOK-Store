@@ -1,5 +1,7 @@
 import 'package:e_book/Components/PrimaryButton.dart';
+import 'package:e_book/Pages/HomePage/HomePage.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -81,7 +83,9 @@ class WelcomePage extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             child: PrimaryButton(
               btnName: "CONTINUE",
-              ontap: () {},
+              ontap: () {
+                Get.offAll(HomePage());
+              },
             ),
           )
         ],
