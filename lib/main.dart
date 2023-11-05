@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'E Book',
       theme: lightTheme,
       // home: const WelcomePage(),
-      home: const HomePage(),
+      home: const WelcomePage(),
     );
   }
 }

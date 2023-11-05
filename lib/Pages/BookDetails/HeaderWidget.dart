@@ -3,7 +3,15 @@ import 'package:flutter_svg/svg.dart';
 import '../../Components/MyBackButton.dart';
 
 class BookDetailsHeader extends StatelessWidget {
-  const BookDetailsHeader({super.key});
+  final String coverUrl;
+  final String title;
+  final String author;
+  final String description;
+  final String rating;
+  final String pages;
+  final String language;
+  final String audioLen;
+  const BookDetailsHeader({super.key, required this.coverUrl, required this.title, required this.author, required this.description, required this.rating, required this.pages, required this.language, required this.audioLen});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +35,7 @@ class BookDetailsHeader extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Image.asset(
-                "Assets/Images/Give and Take.jpg",
+                coverUrl,
                 width: 160,
               ),
             ),
@@ -35,7 +43,9 @@ class BookDetailsHeader extends StatelessWidget {
         ),
         SizedBox(height: 30,),
         Text(
-          "Give and Take",
+          title,
+          maxLines: 1,
+          textAlign: TextAlign.center,
           style: Theme.of(context)
               .textTheme
               .headlineMedium
@@ -43,7 +53,7 @@ class BookDetailsHeader extends StatelessWidget {
           ),
         ),
         Text(
-          "Author: Adam Grant",
+          "Author: $author",
           style: Theme.of(context)
               .textTheme
               .labelMedium
@@ -52,7 +62,8 @@ class BookDetailsHeader extends StatelessWidget {
         ),
         SizedBox(height: 10,),
         Text(
-          "In the new book Give and Take: Adam Grant categorizes people into givers, matchers, and takers.",
+          description,
+          maxLines: 2,
           textAlign: TextAlign.center,
           style: Theme.of(context)
               .textTheme
@@ -60,7 +71,7 @@ class BookDetailsHeader extends StatelessWidget {
               ?.copyWith(color: Theme.of(context).colorScheme.background,
           ),
         ),
-        SizedBox(height: 10,),
+        SizedBox(height: 20,),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -75,7 +86,7 @@ class BookDetailsHeader extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "4.7",
+                  rating,
                   style: Theme.of(context)
                       .textTheme
                       .labelMedium
@@ -95,7 +106,7 @@ class BookDetailsHeader extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "203",
+                  pages,
                   style: Theme.of(context)
                       .textTheme
                       .labelMedium
@@ -115,7 +126,7 @@ class BookDetailsHeader extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "ENG",
+                  language,
                   style: Theme.of(context)
                       .textTheme
                       .labelMedium
@@ -135,7 +146,7 @@ class BookDetailsHeader extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "2 hr",
+                  audioLen,
                   style: Theme.of(context)
                       .textTheme
                       .labelMedium

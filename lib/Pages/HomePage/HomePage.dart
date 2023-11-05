@@ -115,7 +115,7 @@ class HomePage extends StatelessWidget {
                                 title: e.title!,
                                 coverUrl: e.coverUrl!,
                                 ontap: () {
-                                  Get.to(BookDetails());
+                                  Get.to(BookDetails(book: e,));
                                 },
                               )).toList(),
                     ),
@@ -138,6 +138,7 @@ class HomePage extends StatelessWidget {
                         price: e.price!,
                         rating: e.rating!,
                         totalRating: e.numberofRating!,
+                      ontap: () {  },
                     )).toList(),
                   )
                 ],
