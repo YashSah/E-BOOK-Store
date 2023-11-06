@@ -1,6 +1,7 @@
 import 'package:e_book/Components/BookTile.dart';
 import 'package:e_book/Components/MyBackButton.dart';
 import 'package:e_book/Models/Data.dart';
+import 'package:e_book/Pages/AddNewBook/AddNewBook.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
@@ -17,7 +18,9 @@ class ProfilePage extends StatelessWidget {
       floatingActionButton: Tooltip(
         message: "Add a Book",
         child: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Get.to(AddNewBook());
+          },
           child: Icon(
             Icons.add,
             color: Theme.of(context).colorScheme.background,
