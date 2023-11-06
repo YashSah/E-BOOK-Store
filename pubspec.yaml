@@ -42,6 +42,7 @@ dev_dependencies:
   get: ^4.6.6
   flutter_svg: ^2.0.8
   syncfusion_flutter_pdfviewer: ^23.1.43
+  lottie: ^2.7.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -65,6 +66,7 @@ flutter:
   assets:
      - Assets/Images/
      - Assets/Icons/
+     - Assets/Animation/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
