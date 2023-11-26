@@ -1,5 +1,6 @@
 import 'package:e_book/Components/BookCard.dart';
 import 'package:e_book/Components/BookTile.dart';
+import 'package:e_book/Controller/AuthController.dart';
 import 'package:e_book/Controller/BookController.dart';
 import 'package:e_book/Models/Data.dart';
 import 'package:e_book/Pages/BookDetails/BookDetails.dart';
@@ -7,11 +8,27 @@ import 'package:e_book/Pages/HomePage/Widgets/CategoryWidget.dart';
 import 'package:e_book/Pages/HomePage/Widgets/MyInputTextField.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../../Config/Colors.dart';
 import 'Widgets/AppBar.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  AuthController authController = Get.put(AuthController());
+  HomePage({super.key});
+
+  String getGreeting() {
+    DateTime now = DateTime.now();
+    int hour = now.hour;
+
+    if (hour < 12) {
+      return 'Good morning 🌅';
+    } else if (hour < 18) {
+      return 'Good afternoon 🌇';
+    } else {
+      return 'Good evening 🌃';
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -37,14 +54,14 @@ class HomePage extends StatelessWidget {
                           Row(
                             children: [
                               Text(
-                                "Good Morning 🌅",
+                                getGreeting(),
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyLarge
                                     ?.copyWith(color: Theme.of(context).colorScheme.background),
                               ),
                               Text(
-                                " Yash",
+                                " ${authController.auth.currentUser!.displayName}",
                                 style: Theme.of(context)
                                     .textTheme
                                     .headlineMedium

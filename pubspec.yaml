@@ -53,6 +53,13 @@ dev_dependencies:
   uuid: ^4.1.0
   image_picker: ^1.0.4
 
+  flutter_launcher_icons: ^0.13.1
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "Assets/Icons/logo.png"
+
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your

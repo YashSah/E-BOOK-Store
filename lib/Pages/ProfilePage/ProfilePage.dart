@@ -18,6 +18,7 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     AuthController authController = Get.put(AuthController());
     BookController bookController = Get.put(BookController());
+
     return Scaffold(
       floatingActionButton: Tooltip(
         message: "Add a Book",
@@ -86,8 +87,8 @@ class ProfilePage extends StatelessWidget {
                            height: 120,
                            child: ClipRRect(
                              borderRadius: BorderRadius.circular(100),
-                             child: Image.asset(
-                               "Assets/Images/boundaries.jpg",
+                             child: Image.network(
+                               "${authController.auth.currentUser!.photoURL}",
                                fit: BoxFit.cover,
                              ),
                            ),
@@ -95,7 +96,7 @@ class ProfilePage extends StatelessWidget {
                        ),
                         SizedBox(height: 20,),
                         Text(
-                          "Yash Sah",
+                          "${authController.auth.currentUser!.displayName}",
                           style: Theme.of(context)
                               .textTheme
                               .bodyLarge
@@ -103,7 +104,7 @@ class ProfilePage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          "yashsahyashu4752@gmail.com",
+                          "${authController.auth. currentUser!.email}",
                           style: Theme.of(context)
                               .textTheme
                               .labelMedium
@@ -129,17 +130,17 @@ class ProfilePage extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 20,),
-                  Column(
+                  Obx(() => Column(
                     children: bookController.bookData.map((e) => BookTile(
-                        title: e.title!,
-                        coverUrl: e.coverUrl!,
-                        author: e.author!,
-                        price: e.price!,
-                        rating: e.rating!,
-                        totalRating: 12,
-                        ontap: () {},
-                      )).toList(),
-                  )
+                      title: e.title!,
+                      coverUrl: e.coverUrl!,
+                      author: e.author!,
+                      price: e.price!,
+                      rating: e.rating!,
+                      totalRating: 12,
+                      ontap: () {},
+                    )).toList(),
+                  ))
                 ],
               ),
             ),
