@@ -1,4 +1,5 @@
 import 'package:e_book/Components/PrimaryButton.dart';
+import 'package:e_book/Controller/AuthController.dart';
 import 'package:e_book/Pages/HomePage/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,6 +9,7 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthController authController = Get.put(AuthController());
     return Scaffold(
       body: Column(
         children: [
@@ -82,9 +84,9 @@ class WelcomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(10),
             child: PrimaryButton(
-              btnName: "CONTINUE",
+              btnName: "Login with Google",
               ontap: () {
-                Get.offAll(HomePage());
+                authController.loginWithEmail();
               },
             ),
           )

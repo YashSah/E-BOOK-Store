@@ -1,3 +1,4 @@
+import 'package:e_book/Config/Messages.dart';
 import 'package:e_book/Pages/BookPage/BookPage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -46,19 +47,24 @@ class BookActionBtn extends StatelessWidget {
               color: Theme.of(context).colorScheme.background,
             ),
           ),
-          Row(
-            children: [
-              SvgPicture.asset("Assets/Icons/play.svg"),
-              SizedBox(width: 10,),
-              Text(
-                "Listen Book",
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyLarge
-                    ?.copyWith(color: Theme.of(context).colorScheme.background, letterSpacing: 1.5,
+          InkWell(
+            onTap: () {
+              errorMessage("This functionality is presently unavailable.");
+            },
+            child: Row(
+              children: [
+                SvgPicture.asset("Assets/Icons/play.svg"),
+                SizedBox(width: 10,),
+                Text(
+                  "Listen Book",
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge
+                      ?.copyWith(color: Theme.of(context).colorScheme.background, letterSpacing: 1.5,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),

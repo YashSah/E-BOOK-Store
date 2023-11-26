@@ -43,6 +43,15 @@ dev_dependencies:
   flutter_svg: ^2.0.8
   syncfusion_flutter_pdfviewer: ^23.1.43
   lottie: ^2.7.0
+  firebase_core: ^2.21.0
+  google_sign_in: ^6.1.5
+  firebase_auth: ^4.12.1
+  fluttertoast: ^8.2.2
+  file_picker: ^6.1.1
+  cloud_firestore: ^4.12.2
+  firebase_storage: ^11.4.1
+  uuid: ^4.1.0
+  image_picker: ^1.0.4
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

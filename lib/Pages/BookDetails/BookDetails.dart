@@ -62,6 +62,7 @@ class BookDetails extends StatelessWidget {
                       ),
                     ],
                   ),
+                  SizedBox(height: 20,),
                   Row(
                     children: [
                       Text(

@@ -13,7 +13,7 @@ class BookModel {
   String? category;
   String? coverUrl;
   int? price;
-  int? numberofRating;
+  String? numberofRating;
 
   BookModel(
       {this.id,

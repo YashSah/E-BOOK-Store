@@ -1,5 +1,7 @@
 import 'package:e_book/Components/BookTile.dart';
 import 'package:e_book/Components/MyBackButton.dart';
+import 'package:e_book/Controller/AuthController.dart';
+import 'package:e_book/Controller/BookController.dart';
 import 'package:e_book/Models/Data.dart';
 import 'package:e_book/Pages/AddNewBook/AddNewBook.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +16,8 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthController authController = Get.put(AuthController());
+    BookController bookController = Get.put(BookController());
     return Scaffold(
       floatingActionButton: Tooltip(
         message: "Add a Book",
@@ -53,7 +57,18 @@ class ProfilePage extends StatelessWidget {
                               .bodyLarge
                               ?.copyWith(color: Theme.of(context).colorScheme.background,),
                         ),
-                        SizedBox(width: 68,),
+                        Tooltip(
+                          message: "Sign Out",
+                          child: IconButton(
+                            onPressed: () {
+                              authController.signOut();
+                            },
+                            icon: Icon(
+                              Icons.logout,
+                              color: Theme.of(context).colorScheme.background,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                         SizedBox(height: 60,),
@@ -115,13 +130,13 @@ class ProfilePage extends StatelessWidget {
                   ),
                   SizedBox(height: 20,),
                   Column(
-                    children: bookData.map((e) => BookTile(
+                    children: bookController.bookData.map((e) => BookTile(
                         title: e.title!,
                         coverUrl: e.coverUrl!,
                         author: e.author!,
                         price: e.price!,
                         rating: e.rating!,
-                        totalRating: e.numberofRating!,
+                        totalRating: 12,
                         ontap: () {},
                       )).toList(),
                   )
